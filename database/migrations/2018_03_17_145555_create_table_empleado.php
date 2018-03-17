@@ -27,7 +27,7 @@ class CreateTableEmpleado extends Migration
             $table->foreign('id_departamento')->references('id')->on('cat_departamentos');
             $table->integer('id_turno')->unsigned();
             $table->foreign('id_turno')->references('id')->on('cat_turnos');
-            
+                
             $table->timestamps();
         });
 
