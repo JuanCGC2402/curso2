@@ -16,7 +16,7 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        $empleados = Empleado::paginate(10);
+        $empleados = Empleado::paginate(5);
         // dd($empleados->toArray());
         return view('empleados.index',['empleados'=>$empleados]);
     }
@@ -124,9 +124,7 @@ class EmpleadoController extends Controller
 
       $empleado->save();
 
-        $empleados = Empleado::paginate(10);
-        // dd($empleados->toArray());
-        return view('empleados.index',['empleados'=>$empleados]);
+        return $this->index();
     }
 
     /**
@@ -139,7 +137,7 @@ class EmpleadoController extends Controller
     {
        $empleado = Empleado::find($id);
        $empleado->delete(); 
-       $empleados = Empleado::paginate(10);
-       return view('empleados.index',['empleados'=>$empleados]);
+
+       return $this->index();
     }
 }

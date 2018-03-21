@@ -19,7 +19,11 @@
 
 // Route::post('/empleados/update','EmpleadoController@update');
 
-Route::resource('/empleados','EmpleadoController');
+Route::resource('/empleados','EmpleadoController',['middleware' =>['auth']]);
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
