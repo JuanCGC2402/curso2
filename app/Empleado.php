@@ -19,11 +19,11 @@ class Empleado extends Model
      	];
 
     public function departamento(){
-    	return $this->belongsTo('App\Departamento');
+    	return $this->belongsTo('App\Departamento','id');
     }
 
     public function turno(){
-    	return $this->belongsTo('App\Turno');
+    	return $this->belongsTo('App\Turno','id');
     }
 
 
